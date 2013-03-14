@@ -68,7 +68,7 @@ class EExternalLinks
         protected function link2update($link_href, $link_full )
         {
                 // проверка href-части ссылки на принадлежность к адресу блога
-                if ( ereg('^http://'.$_SERVER['HTTP_HOST'], $link_href) ) return false;
+                if ( preg_match('/^http:\/\/'.$_SERVER['HTTP_HOST'].'/i', $link_href) ) return false;
 
                 // проверка href-части ссылки на принадлежность к stop-листу
                 /*$stop_list = explode("\n", $jexr_opt['jex_stop']);
